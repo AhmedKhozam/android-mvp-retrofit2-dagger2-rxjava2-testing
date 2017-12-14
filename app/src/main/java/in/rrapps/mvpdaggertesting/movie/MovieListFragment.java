@@ -16,13 +16,17 @@ import android.widget.ProgressBar;
 
 import com.jakewharton.rxbinding2.support.v7.widget.RxRecyclerView;
 
+import in.rrapps.mvpdaggertesting.BaseApplication;
 import in.rrapps.mvpdaggertesting.BaseFragment;
+import in.rrapps.mvpdaggertesting.api.ApiService;
 import in.rrapps.mvpdaggertesting.detail.MovieDetailActivity;
 import in.rrapps.mvpdaggertesting.Constants;
 import in.rrapps.mvpdaggertesting.R;
 import in.rrapps.mvpdaggertesting.models.response.Result;
 
 import java.util.List;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -43,7 +47,6 @@ public class MovieListFragment extends BaseFragment implements Contracts.View {
     @BindView(R.id.tv_info)
     AppCompatTextView tvInfo;
 
-
     Unbinder unbinder;
 
     private MovieListPresenter presenter;
@@ -53,18 +56,24 @@ public class MovieListFragment extends BaseFragment implements Contracts.View {
     private static int pageIndex = 1;
     private MovieListAdapter movieListAdapter;
 
+    @Inject
+    ApiService apiService;
+
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_movie_list, container, false);
         unbinder = ButterKnife.bind(this, view);
+
+        BaseApplication.getInstance().getApiComponent().inject(this);
         return view;
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        presenter = new MovieListPresenter(this);
+        presenter = new MovieListPresenter(this, apiService);
         presenter.init();
         RxRecyclerView.scrollEvents(rvMovieList)
                 .filter(event -> presenter.shouldUpdate())

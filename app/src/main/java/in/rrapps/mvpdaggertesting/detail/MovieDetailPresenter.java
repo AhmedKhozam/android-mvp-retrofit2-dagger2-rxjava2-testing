@@ -1,11 +1,9 @@
 package in.rrapps.mvpdaggertesting.detail;
 
-import in.rrapps.mvpdaggertesting.dao.DatabaseCallbacks;
 import in.rrapps.mvpdaggertesting.BaseApplication;
-import in.rrapps.mvpdaggertesting.BasePresenter;
+import in.rrapps.mvpdaggertesting.dao.DatabaseCallbacks;
 import in.rrapps.mvpdaggertesting.dao.DatabaseInteractor;
 import in.rrapps.mvpdaggertesting.models.MovieData;
-
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import timber.log.Timber;
@@ -14,17 +12,15 @@ import timber.log.Timber;
  * @author shishank
  */
 
-public class MovieDetailPresenter extends BasePresenter implements Contracts.Presenter, DatabaseCallbacks {
+public class MovieDetailPresenter implements Contracts.Presenter, DatabaseCallbacks {
 
     private Contracts.View movieDetailView;
-    private int id;
     private DatabaseInteractor databaseInteractor;
 
     public MovieDetailPresenter(Contracts.View movieDetailView) {
         this.movieDetailView = movieDetailView;
         databaseInteractor = BaseApplication.getInstance().getDatabaseInteractor();
         databaseInteractor.setCallbacks(this);
-
     }
 
     @Override

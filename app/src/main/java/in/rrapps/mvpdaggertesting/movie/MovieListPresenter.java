@@ -1,6 +1,6 @@
 package in.rrapps.mvpdaggertesting.movie;
 
-import in.rrapps.mvpdaggertesting.BasePresenter;
+import in.rrapps.mvpdaggertesting.api.ApiService;
 import in.rrapps.mvpdaggertesting.models.response.DiscoverResponse;
 import in.rrapps.mvpdaggertesting.Constants;
 
@@ -13,16 +13,17 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
  * @author shishank
  */
 
-public class MovieListPresenter extends BasePresenter implements Contracts.Presenter {
-
+public class MovieListPresenter implements Contracts.Presenter {
 
     private Contracts.View movieView;
     private boolean isUpdating;
     private Map<String, Object> queryMap;
+    private ApiService apiService;
 
-    public MovieListPresenter(Contracts.View movieView) {
+    public MovieListPresenter(Contracts.View movieView, ApiService apiService) {
         super();
         this.movieView = movieView;
+        this.apiService   = apiService;
         queryMap = new HashMap<>();
         queryMap.put("api_key", Constants.API_KEY);
     }
