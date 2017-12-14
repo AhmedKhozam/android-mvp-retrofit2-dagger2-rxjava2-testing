@@ -23,21 +23,20 @@ task checkstyle(type: Checkstyle) {
 }
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 27
     buildToolsVersion '27.0.0'
 
     final API_URL_DEV = "https://api.themoviedb.org/3/";
-    final API_URL_PROD = "https://api.themoviedb.org/3/";
 
     defaultConfig {
-        applicationId "com.shishank.android"
-        minSdkVersion 17
-        targetSdkVersion 26
+        applicationId "in.rrapps.mvpdaggertesting"
+        minSdkVersion 23
+        targetSdkVersion 27
 
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
 
         // setting custom name for apk
-        project.ext.set("archivesBaseName", "movie-" + defaultConfig.versionName
+        project.ext.set("archivesBaseName", "MVPDaggerTestingDemo-" + defaultConfig.versionName
                 + "-vc" + defaultConfig.versionCode)
     }
 
@@ -47,17 +46,8 @@ android {
 
     buildTypes {
         debug {
-            applicationIdSuffix '.debug'
             minifyEnabled false
             buildConfigField 'String', 'API_URL', "\"" + API_URL_DEV + "\""
-        }
-
-
-        release {
-            applicationIdSuffix '.release'
-            buildConfigField 'String', 'API_URL', "\"" + API_URL_DEV + "\""
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 
@@ -143,7 +133,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test:rules:1.0.1'
     testCompile 'org.powermock:powermock-api-mockito:1.6.6'
     testCompile 'org.powermock:powermock-module-junit4:1.6.6'
-    testCompile "org.mockito:mockito-core:1.10.19"
+    testCompile "org.mockito:mockito-core:2.10.0"
     // Optional -- Mockito framework
     // Optional -- UI testing with Espresso
     androidTestCompile 'com.android.support.test.espresso:espresso-core:3.0.1'
