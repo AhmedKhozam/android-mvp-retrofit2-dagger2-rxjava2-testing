@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import in.shishank.android.R;
+import in.rrapps.mvpdaggertesting.R;
 
 public class LoadingDialog extends android.support.v4.app.DialogFragment {
 

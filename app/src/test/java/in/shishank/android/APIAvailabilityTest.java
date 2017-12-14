@@ -1,4 +1,4 @@
-package in.shishank.android;
+package in.rrapps.mvpdaggertesting;
 
 import org.junit.Test;
 

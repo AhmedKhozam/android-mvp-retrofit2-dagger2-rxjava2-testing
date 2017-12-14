@@ -19,7 +19,7 @@ import com.jakewharton.rxbinding2.support.v7.widget.RxRecyclerView;
 import in.rrapps.mvpdaggertesting.BaseFragment;
 import in.rrapps.mvpdaggertesting.detail.MovieDetailActivity;
 import in.rrapps.mvpdaggertesting.Constants;
-import in.shishank.android.R;
+import in.rrapps.mvpdaggertesting.R;
 import in.rrapps.mvpdaggertesting.models.response.Result;
 
 import java.util.List;

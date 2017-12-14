@@ -1,4 +1,4 @@
-package in.shishank.android;
+package in.rrapps.mvpdaggertesting;
 
 import in.rrapps.mvpdaggertesting.ApiComponent;
 import in.rrapps.mvpdaggertesting.BaseApplication;

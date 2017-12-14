@@ -1,4 +1,4 @@
-package in.shishank.android.api;
+package in.rrapps.mvpdaggertesting.api;
 
 import in.rrapps.mvpdaggertesting.api.ApiService;
 import in.rrapps.mvpdaggertesting.models.response.DiscoverResponse;

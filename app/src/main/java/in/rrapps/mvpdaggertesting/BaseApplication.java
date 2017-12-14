@@ -5,7 +5,6 @@ import android.arch.persistence.room.Room;
 
 import in.rrapps.mvpdaggertesting.dao.DatabaseWrapper;
 import in.rrapps.mvpdaggertesting.database.AppDatabase;
-import in.shishank.android.BuildConfig;
 import in.rrapps.mvpdaggertesting.dao.DatabaseInteractor;
 
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package in.shishank.android.api;
+package in.rrapps.mvpdaggertesting.api;
 
 import javax.inject.Singleton;
 

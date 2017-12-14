@@ -19,10 +19,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.setContentView(in.shishank.android.R.layout.activity_base);
+        super.setContentView(in.rrapps.mvpdaggertesting.R.layout.activity_base);
 
 
-        contentFrame = (FrameLayout) findViewById(in.shishank.android.R.id.base_container);
+        contentFrame = (FrameLayout) findViewById(in.rrapps.mvpdaggertesting.R.id.base_container);
     }
 
     @Override

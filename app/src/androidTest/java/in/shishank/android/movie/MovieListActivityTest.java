@@ -1,4 +1,4 @@
-package in.shishank.android.movie;
+package in.rrapps.mvpdaggertesting.movie;
 
 
 import android.support.test.espresso.ViewInteraction;
@@ -7,7 +7,7 @@ import android.support.test.runner.AndroidJUnit4;
 import android.test.suitebuilder.annotation.LargeTest;
 
 import in.rrapps.mvpdaggertesting.movie.MovieListActivity;
-import in.shishank.android.R;
+import in.rrapps.mvpdaggertesting.R;
 
 import org.junit.Rule;
 import org.junit.Test;

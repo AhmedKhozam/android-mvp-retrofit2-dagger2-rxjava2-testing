@@ -14,7 +14,7 @@ task checkstyle(type: Checkstyle) {
     source 'src'
     include '**/*.java'
     exclude '**/gen/**'
-    exclude '**/test/java/com/shishank/android/**'
+    exclude '**/test/java/in/rrapps/mvpdaggertesting/**'
 
     classpath = files()
 
@@ -38,10 +38,6 @@ android {
         // setting custom name for apk
         project.ext.set("archivesBaseName", "MVPDaggerTestingDemo-" + defaultConfig.versionName
                 + "-vc" + defaultConfig.versionCode)
-    }
-
-    signingConfigs {
-
     }
 
     buildTypes {

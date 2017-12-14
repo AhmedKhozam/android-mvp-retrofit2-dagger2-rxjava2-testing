@@ -11,7 +11,7 @@ public class MovieListActivity extends BaseToolBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(in.shishank.android.R.layout.activity_movie_list);
+        setContentView(in.rrapps.mvpdaggertesting.R.layout.activity_movie_list);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         }
@@ -19,7 +19,7 @@ public class MovieListActivity extends BaseToolBarActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(in.shishank.android.R.menu.sort_menu, menu);
+        getMenuInflater().inflate(in.rrapps.mvpdaggertesting.R.menu.sort_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 }

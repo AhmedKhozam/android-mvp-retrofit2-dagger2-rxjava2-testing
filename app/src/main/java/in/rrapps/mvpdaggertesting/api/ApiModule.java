@@ -3,7 +3,7 @@ package in.rrapps.mvpdaggertesting.api;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import in.shishank.android.BuildConfig;
+import in.rrapps.mvpdaggertesting.BuildConfig;
 
 import java.util.concurrent.TimeUnit;
 

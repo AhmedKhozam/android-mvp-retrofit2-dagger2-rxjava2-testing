@@ -11,15 +11,15 @@ public abstract class BaseToolBarActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.setContentView(in.shishank.android.R.layout.activity_base_toolbar);
+        super.setContentView(in.rrapps.mvpdaggertesting.R.layout.activity_base_toolbar);
 
-        Toolbar toolbar = findViewById(in.shishank.android.R.id.toolbar);
+        Toolbar toolbar = findViewById(in.rrapps.mvpdaggertesting.R.id.toolbar);
         setSupportActionBar(toolbar);
 
         assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        contentFrame = findViewById(in.shishank.android.R.id.activity_content);
+        contentFrame = findViewById(in.rrapps.mvpdaggertesting.R.id.activity_content);
     }
 
     @Override

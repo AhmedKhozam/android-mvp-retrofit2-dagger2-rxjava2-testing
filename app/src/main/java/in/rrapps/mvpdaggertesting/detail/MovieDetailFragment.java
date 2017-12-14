@@ -20,7 +20,7 @@ import com.hookedonplay.decoviewlib.charts.SeriesItem;
 import com.hookedonplay.decoviewlib.events.DecoEvent;
 import in.rrapps.mvpdaggertesting.BaseFragment;
 import in.rrapps.mvpdaggertesting.Constants;
-import in.shishank.android.R;
+import in.rrapps.mvpdaggertesting.R;
 import in.rrapps.mvpdaggertesting.models.MovieData;
 import in.rrapps.mvpdaggertesting.models.response.Result;
 

@@ -19,18 +19,18 @@ public abstract class BaseDrawerActivity extends BaseActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.setContentView(in.shishank.android.R.layout.activity_base_drawer);
-        Toolbar toolbar = (Toolbar) findViewById(in.shishank.android.R.id.toolbar);
+        super.setContentView(in.rrapps.mvpdaggertesting.R.layout.activity_base_drawer);
+        Toolbar toolbar = (Toolbar) findViewById(in.rrapps.mvpdaggertesting.R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        container = (FrameLayout)findViewById(in.shishank.android.R.id.drawer_container);
-        drawerLayout = (DrawerLayout) findViewById(in.shishank.android.R.id.drawer_layout);
+        container = (FrameLayout)findViewById(in.rrapps.mvpdaggertesting.R.id.drawer_container);
+        drawerLayout = (DrawerLayout) findViewById(in.rrapps.mvpdaggertesting.R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawerLayout, toolbar, in.shishank.android.R.string.navigation_drawer_open, in.shishank.android.R.string.navigation_drawer_close);
+                this, drawerLayout, toolbar, in.rrapps.mvpdaggertesting.R.string.navigation_drawer_open, in.rrapps.mvpdaggertesting.R.string.navigation_drawer_close);
         drawerLayout.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(in.shishank.android.R.id.nav_view);
+        NavigationView navigationView = (NavigationView) findViewById(in.rrapps.mvpdaggertesting.R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
 
@@ -54,21 +54,21 @@ public abstract class BaseDrawerActivity extends BaseActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == in.shishank.android.R.id.nav_camera) {
+        if (id == in.rrapps.mvpdaggertesting.R.id.nav_camera) {
             // Handle the camera action
-        } else if (id == in.shishank.android.R.id.nav_gallery) {
+        } else if (id == in.rrapps.mvpdaggertesting.R.id.nav_gallery) {
 
-        } else if (id == in.shishank.android.R.id.nav_slideshow) {
+        } else if (id == in.rrapps.mvpdaggertesting.R.id.nav_slideshow) {
 
-        } else if (id == in.shishank.android.R.id.nav_manage) {
+        } else if (id == in.rrapps.mvpdaggertesting.R.id.nav_manage) {
 
-        } else if (id == in.shishank.android.R.id.nav_share) {
+        } else if (id == in.rrapps.mvpdaggertesting.R.id.nav_share) {
 
-        } else if (id == in.shishank.android.R.id.nav_send) {
+        } else if (id == in.rrapps.mvpdaggertesting.R.id.nav_send) {
 
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(in.shishank.android.R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(in.rrapps.mvpdaggertesting.R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

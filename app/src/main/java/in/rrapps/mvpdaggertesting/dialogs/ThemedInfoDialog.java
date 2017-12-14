@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import in.shishank.android.R;
+import in.rrapps.mvpdaggertesting.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

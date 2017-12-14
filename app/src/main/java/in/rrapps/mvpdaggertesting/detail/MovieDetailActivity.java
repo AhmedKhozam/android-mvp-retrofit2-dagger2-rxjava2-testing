@@ -3,7 +3,7 @@ package in.rrapps.mvpdaggertesting.detail;
 import android.os.Bundle;
 
 import in.rrapps.mvpdaggertesting.BaseToolBarActivity;
-import in.shishank.android.R;
+import in.rrapps.mvpdaggertesting.R;
 
 /**
  * @author shishank
