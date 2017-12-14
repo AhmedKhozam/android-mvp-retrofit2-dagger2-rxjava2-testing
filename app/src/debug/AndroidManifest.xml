@@ -4,7 +4,7 @@
           xmlns:tools="http://schemas.android.com/tools">
 
     <application
-        android:name="com.shishank.android.DebugBaseApplication"
+        android:name="com.shishank.android.in.shishank.android.DebugBaseApplication"
         tools:replace="android:name"/>
 
 </manifest>

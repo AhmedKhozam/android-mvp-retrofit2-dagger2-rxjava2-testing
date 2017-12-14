@@ -7,8 +7,8 @@
 
     <fragment
         android:id="@+id/fragment"
-        android:name="com.shishank.android.movie.MovieListFragment"
+        android:name="in.rrapps.mvpdaggertesting.movie.MovieListFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".movie.MovieListActivity" />
+        tools:context="in.rrapps.mvpdaggertesting.movie.MovieListActivity" />
 </FrameLayout>
