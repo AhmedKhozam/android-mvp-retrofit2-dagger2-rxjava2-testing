@@ -3,6 +3,7 @@ package in.rrapps.mvpdaggertesting.movie;
 import android.os.Bundle;
 import android.view.Menu;
 
+import in.rrapps.mvpdaggertesting.BaseApplication;
 import in.rrapps.mvpdaggertesting.BaseToolBarActivity;
 
 
@@ -15,6 +16,8 @@ public class MovieListActivity extends BaseToolBarActivity {
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         }
+
+        BaseApplication.getInstance();
     }
 
     @Override

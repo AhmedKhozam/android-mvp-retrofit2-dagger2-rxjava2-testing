@@ -1,12 +1,12 @@
 package in.rrapps.mvpdaggertesting;
 
 import android.app.Application;
-import android.arch.persistence.room.Room;
 
-import in.rrapps.mvpdaggertesting.dao.DatabaseWrapper;
-import in.rrapps.mvpdaggertesting.database.AppDatabase;
+import javax.inject.Inject;
+
 import in.rrapps.mvpdaggertesting.dao.DatabaseInteractor;
-
+import in.rrapps.mvpdaggertesting.database.AppDatabase;
+import in.rrapps.mvpdaggertesting.movie.DaggerAppComponent;
 import lombok.Getter;
 import timber.log.Timber;
 
@@ -14,14 +14,14 @@ public class BaseApplication extends Application {
 
     private static BaseApplication instance;
 
-    @Getter
-    protected ApiComponent apiComponent;
+/*    @Inject @Getter
+    ApiComponent apiComponent;*/
 
-    @Getter
-    private DatabaseInteractor databaseInteractor;
+    @Inject @Getter
+    DatabaseInteractor databaseInteractor;
 
-    @Getter
-    private AppDatabase appDatabase;
+    @Inject @Getter
+    AppDatabase appDatabase;
 
     @Override
     public void onCreate() {
@@ -32,9 +32,10 @@ public class BaseApplication extends Application {
             Timber.plant(new Timber.DebugTree());
         }
 
-        apiComponent = DaggerApiComponent.create();
-        appDatabase = Room.databaseBuilder(this, AppDatabase.class, "movieData").build();
-        databaseInteractor = new DatabaseWrapper();
+        DaggerAppComponent.builder()
+                .appModule(new AppModule(this))
+                .build()
+                .inject(this);
     }
 
     public static BaseApplication getInstance() {

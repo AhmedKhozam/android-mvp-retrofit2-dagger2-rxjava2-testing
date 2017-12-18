@@ -59,6 +59,12 @@ public class MovieListFragment extends BaseFragment implements Contracts.View {
     @Inject
     ApiService apiService;
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -66,7 +72,7 @@ public class MovieListFragment extends BaseFragment implements Contracts.View {
         View view = inflater.inflate(R.layout.fragment_movie_list, container, false);
         unbinder = ButterKnife.bind(this, view);
 
-        BaseApplication.getInstance().getApiComponent().inject(this);
+//        BaseApplication.getInstance().getApiComponent().inject(this);
         return view;
     }
 
