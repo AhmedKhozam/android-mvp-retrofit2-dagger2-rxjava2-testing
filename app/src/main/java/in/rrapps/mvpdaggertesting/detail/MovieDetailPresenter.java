@@ -19,7 +19,7 @@ public class MovieDetailPresenter implements Contracts.Presenter, DatabaseCallba
 
     public MovieDetailPresenter(Contracts.View movieDetailView) {
         this.movieDetailView = movieDetailView;
-        databaseInteractor = BaseApplication.getInstance().getDatabaseInteractor();
+//        databaseInteractor = BaseApplication.getInstance().getDatabaseInteractor();
         databaseInteractor.setCallbacks(this);
     }
 

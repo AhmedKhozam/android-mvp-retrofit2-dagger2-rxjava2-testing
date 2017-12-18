@@ -16,14 +16,6 @@ import android.widget.ProgressBar;
 
 import com.jakewharton.rxbinding2.support.v7.widget.RxRecyclerView;
 
-import in.rrapps.mvpdaggertesting.BaseApplication;
-import in.rrapps.mvpdaggertesting.BaseFragment;
-import in.rrapps.mvpdaggertesting.api.ApiService;
-import in.rrapps.mvpdaggertesting.detail.MovieDetailActivity;
-import in.rrapps.mvpdaggertesting.Constants;
-import in.rrapps.mvpdaggertesting.R;
-import in.rrapps.mvpdaggertesting.models.response.Result;
-
 import java.util.List;
 
 import javax.inject.Inject;
@@ -31,6 +23,14 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import in.rrapps.mvpdaggertesting.BaseApplication;
+import in.rrapps.mvpdaggertesting.BaseFragment;
+import in.rrapps.mvpdaggertesting.Constants;
+import in.rrapps.mvpdaggertesting.R;
+import in.rrapps.mvpdaggertesting.api.ApiModule;
+import in.rrapps.mvpdaggertesting.api.ApiService;
+import in.rrapps.mvpdaggertesting.detail.MovieDetailActivity;
+import in.rrapps.mvpdaggertesting.models.response.Result;
 
 /**
  * @author shishank
@@ -62,7 +62,10 @@ public class MovieListFragment extends BaseFragment implements Contracts.View {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        ((BaseApplication)getActivity().getApplication())
+                .getAppComponent()
+                .newMovieComponent(new MovieModule(this, apiService))
+                .inject(this);
     }
 
     @Nullable
@@ -72,7 +75,6 @@ public class MovieListFragment extends BaseFragment implements Contracts.View {
         View view = inflater.inflate(R.layout.fragment_movie_list, container, false);
         unbinder = ButterKnife.bind(this, view);
 
-//        BaseApplication.getInstance().getApiComponent().inject(this);
         return view;
     }
 

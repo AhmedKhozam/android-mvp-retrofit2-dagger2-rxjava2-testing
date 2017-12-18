@@ -17,7 +17,6 @@ public class MovieListActivity extends BaseToolBarActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         }
 
-        BaseApplication.getInstance();
     }
 
     @Override

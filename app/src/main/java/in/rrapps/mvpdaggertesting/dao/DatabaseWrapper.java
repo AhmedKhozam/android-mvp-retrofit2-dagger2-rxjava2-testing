@@ -3,8 +3,8 @@ package in.rrapps.mvpdaggertesting.dao;
 import android.os.AsyncTask;
 
 import in.rrapps.mvpdaggertesting.BaseApplication;
+import in.rrapps.mvpdaggertesting.database.AppDatabase;
 import in.rrapps.mvpdaggertesting.models.MovieData;
-
 import io.reactivex.Single;
 
 /**
@@ -13,11 +13,11 @@ import io.reactivex.Single;
 
 public class DatabaseWrapper implements DatabaseInteractor {
 
+    private final BaseApplication application;
     private DatabaseCallbacks callbacks;
-    private MovieDataDao movieDataDao;
 
-    public DatabaseWrapper() {
-        movieDataDao = BaseApplication.getInstance().getAppDatabase().movieDataDao();
+    public DatabaseWrapper(BaseApplication application) {
+        this.application = application;
     }
 
     @Override
@@ -25,7 +25,7 @@ public class DatabaseWrapper implements DatabaseInteractor {
         new AsyncTask<Void, Void, Void>() {
             @Override
             protected Void doInBackground(Void... voids) {
-                movieDataDao.addMovieData(data);
+                application.getAppDatabase().movieDataDao().addMovieData(data);
                 return null;
             }
 
@@ -40,7 +40,7 @@ public class DatabaseWrapper implements DatabaseInteractor {
 
     @Override
     public Single<MovieData> getMovieData(int id) {
-        return movieDataDao.getMovieData(id);
+        return application.getAppDatabase().movieDataDao().getMovieData(id);
     }
 
     @Override

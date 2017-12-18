@@ -4,9 +4,10 @@ import android.app.Application;
 
 import javax.inject.Inject;
 
+import in.rrapps.mvpdaggertesting.api.ApiModule;
 import in.rrapps.mvpdaggertesting.dao.DatabaseInteractor;
 import in.rrapps.mvpdaggertesting.database.AppDatabase;
-import in.rrapps.mvpdaggertesting.movie.DaggerAppComponent;
+
 import lombok.Getter;
 import timber.log.Timber;
 
@@ -14,14 +15,14 @@ public class BaseApplication extends Application {
 
     private static BaseApplication instance;
 
-/*    @Inject @Getter
-    ApiComponent apiComponent;*/
-
     @Inject @Getter
     DatabaseInteractor databaseInteractor;
 
     @Inject @Getter
     AppDatabase appDatabase;
+
+    @Getter
+    private AppComponent appComponent;
 
     @Override
     public void onCreate() {
@@ -32,13 +33,10 @@ public class BaseApplication extends Application {
             Timber.plant(new Timber.DebugTree());
         }
 
-        DaggerAppComponent.builder()
+        appComponent = DaggerAppComponent.builder()
                 .appModule(new AppModule(this))
-                .build()
-                .inject(this);
-    }
+                .build();
 
-    public static BaseApplication getInstance() {
-        return instance;
+        appComponent.inject(this);
     }
 }

@@ -28,7 +28,7 @@ public class AppModule {
 
     @Provides
     DatabaseInteractor providesDatabaseInteractor() {
-        return new DatabaseWrapper();
+        return new DatabaseWrapper(application);
     }
 
     @Provides
