@@ -7,6 +7,8 @@ import in.rrapps.mvpdaggertesting.Constants;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.inject.Inject;
+
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import lombok.Setter;
 
@@ -20,13 +22,12 @@ public class MovieListPresenter implements Contracts.Presenter {
     private boolean isUpdating;
     private Map<String, Object> queryMap;
 
-    @Setter
     private ApiService apiService;
 
-    public MovieListPresenter(Contracts.View movieView/*, ApiService apiService*/) {
+    public MovieListPresenter(Contracts.View movieView, ApiService apiService) {
         super();
         this.movieView = movieView;
-//        this.apiService = apiService;
+        this.apiService = apiService;
         queryMap = new HashMap<>();
         queryMap.put("api_key", Constants.API_KEY);
     }

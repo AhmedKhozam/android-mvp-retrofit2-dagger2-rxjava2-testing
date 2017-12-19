@@ -66,8 +66,6 @@ public class MovieListFragment extends BaseFragment implements Contracts.View {
                 .getAppComponent()
                 .newMovieComponent(new MovieModule(this))
                 .inject(this);
-
-        presenter.setApiService(apiService);
     }
 
     @Nullable
