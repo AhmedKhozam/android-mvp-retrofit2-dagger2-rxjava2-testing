@@ -27,7 +27,6 @@ import in.rrapps.mvpdaggertesting.BaseApplication;
 import in.rrapps.mvpdaggertesting.BaseFragment;
 import in.rrapps.mvpdaggertesting.Constants;
 import in.rrapps.mvpdaggertesting.R;
-import in.rrapps.mvpdaggertesting.api.ApiModule;
 import in.rrapps.mvpdaggertesting.api.ApiService;
 import in.rrapps.mvpdaggertesting.detail.MovieDetailActivity;
 import in.rrapps.mvpdaggertesting.models.response.Result;
@@ -49,7 +48,8 @@ public class MovieListFragment extends BaseFragment implements Contracts.View {
 
     Unbinder unbinder;
 
-    private MovieListPresenter presenter;
+    @Inject
+    MovieListPresenter presenter;
 
     private GridLayoutManager gridLayoutManager;
 
@@ -64,8 +64,10 @@ public class MovieListFragment extends BaseFragment implements Contracts.View {
         super.onCreate(savedInstanceState);
         ((BaseApplication)getActivity().getApplication())
                 .getAppComponent()
-                .newMovieComponent(new MovieModule(this, apiService))
+                .newMovieComponent(new MovieModule(this))
                 .inject(this);
+
+        presenter.setApiService(apiService);
     }
 
     @Nullable
@@ -81,7 +83,6 @@ public class MovieListFragment extends BaseFragment implements Contracts.View {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        presenter = new MovieListPresenter(this, apiService);
         presenter.init();
         RxRecyclerView.scrollEvents(rvMovieList)
                 .filter(event -> presenter.shouldUpdate())

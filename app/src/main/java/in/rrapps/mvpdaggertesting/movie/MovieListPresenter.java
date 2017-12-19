@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import lombok.Setter;
 
 /**
  * @author shishank
@@ -18,12 +19,14 @@ public class MovieListPresenter implements Contracts.Presenter {
     private Contracts.View movieView;
     private boolean isUpdating;
     private Map<String, Object> queryMap;
+
+    @Setter
     private ApiService apiService;
 
-    public MovieListPresenter(Contracts.View movieView, ApiService apiService) {
+    public MovieListPresenter(Contracts.View movieView/*, ApiService apiService*/) {
         super();
         this.movieView = movieView;
-        this.apiService   = apiService;
+//        this.apiService = apiService;
         queryMap = new HashMap<>();
         queryMap.put("api_key", Constants.API_KEY);
     }

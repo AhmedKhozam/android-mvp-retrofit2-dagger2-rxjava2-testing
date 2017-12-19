@@ -13,15 +13,15 @@ import in.rrapps.mvpdaggertesting.api.ApiService;
 public class MovieModule {
 
     private final Contracts.View movieView;
-    private final ApiService apiService;
+//    private final ApiService apiService;
 
-    public MovieModule(Contracts.View movieView, ApiService apiService) {
+    public MovieModule(Contracts.View movieView/*, ApiService apiService*/) {
         this.movieView = movieView;
-        this.apiService = apiService;
+//        this.apiService = apiService;
     }
 
     @Provides
     MovieListPresenter provideMovieListPresenter() {
-        return new MovieListPresenter(movieView, apiService);
+        return new MovieListPresenter(movieView/*, apiService*/);
     }
 }
