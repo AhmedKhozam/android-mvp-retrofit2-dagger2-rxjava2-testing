@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="in.rrapps.mvpdaggertesting.detail.MovieDetailActivity"
+            android:name=".movie.detail.MovieDetailActivity"
             android:theme="@style/AppTheme" />
     </application>
 

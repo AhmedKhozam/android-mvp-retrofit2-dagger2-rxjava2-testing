@@ -1,4 +1,4 @@
-package in.rrapps.mvpdaggertesting.detail;
+package in.rrapps.mvpdaggertesting.movie.detail;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -18,6 +18,8 @@ import com.bumptech.glide.Glide;
 import com.hookedonplay.decoviewlib.DecoView;
 import com.hookedonplay.decoviewlib.charts.SeriesItem;
 import com.hookedonplay.decoviewlib.events.DecoEvent;
+
+import in.rrapps.mvpdaggertesting.BaseApplication;
 import in.rrapps.mvpdaggertesting.BaseFragment;
 import in.rrapps.mvpdaggertesting.Constants;
 import in.rrapps.mvpdaggertesting.R;
@@ -25,6 +27,8 @@ import in.rrapps.mvpdaggertesting.models.MovieData;
 import in.rrapps.mvpdaggertesting.models.response.Result;
 
 import java.util.Locale;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -71,9 +75,19 @@ public class MovieDetailFragment extends BaseFragment implements Contracts.View 
 
     private final float MAX_RANGE = 10f;
 
-    private MovieDetailPresenter presenter;
+    @Inject
+    MovieDetailPresenter presenter;
 
     private Result result;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        ((BaseApplication)getActivity().getApplication())
+            .getAppComponent()
+            .newMovieDetailComponent(new MovieDetailModule(this))
+            .inject(this);
+    }
 
     @Nullable
     @Override
@@ -87,12 +101,10 @@ public class MovieDetailFragment extends BaseFragment implements Contracts.View 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        presenter = new MovieDetailPresenter(this);
         SeriesItem seriesItem = new SeriesItem.Builder(ContextCompat.getColor(getActivity(), android.R.color.white))
                 .setRange(0, MAX_RANGE, MAX_RANGE).setInitialVisibility(true).build();
         userVoteProgress.addSeries(seriesItem);
         presenter.init();
-
     }
 
     @Override

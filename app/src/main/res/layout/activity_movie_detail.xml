@@ -2,7 +2,7 @@
 <fragment xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_detail"
-    android:name="in.rrapps.mvpdaggertesting.detail.MovieDetailFragment"
+    android:name="in.rrapps.mvpdaggertesting.movie.detail.MovieDetailFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="in.rrapps.mvpdaggertesting.detail.MovieDetailActivity" />
+    tools:context=".movie.detail.MovieDetailActivity" />

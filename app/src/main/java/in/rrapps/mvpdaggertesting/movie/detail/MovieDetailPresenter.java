@@ -1,6 +1,5 @@
-package in.rrapps.mvpdaggertesting.detail;
+package in.rrapps.mvpdaggertesting.movie.detail;
 
-import in.rrapps.mvpdaggertesting.BaseApplication;
 import in.rrapps.mvpdaggertesting.dao.DatabaseCallbacks;
 import in.rrapps.mvpdaggertesting.dao.DatabaseInteractor;
 import in.rrapps.mvpdaggertesting.models.MovieData;
@@ -15,11 +14,12 @@ import timber.log.Timber;
 public class MovieDetailPresenter implements Contracts.Presenter, DatabaseCallbacks {
 
     private Contracts.View movieDetailView;
-    private DatabaseInteractor databaseInteractor;
+    private final DatabaseInteractor databaseInteractor;
 
-    public MovieDetailPresenter(Contracts.View movieDetailView) {
+    public MovieDetailPresenter(Contracts.View movieDetailView,
+                                DatabaseInteractor databaseInteractor) {
         this.movieDetailView = movieDetailView;
-//        databaseInteractor = BaseApplication.getInstance().getDatabaseInteractor();
+        this.databaseInteractor = databaseInteractor;
         databaseInteractor.setCallbacks(this);
     }
 

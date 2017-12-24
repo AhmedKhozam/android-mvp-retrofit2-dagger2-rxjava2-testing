@@ -28,7 +28,7 @@ import in.rrapps.mvpdaggertesting.BaseFragment;
 import in.rrapps.mvpdaggertesting.Constants;
 import in.rrapps.mvpdaggertesting.R;
 import in.rrapps.mvpdaggertesting.api.ApiService;
-import in.rrapps.mvpdaggertesting.detail.MovieDetailActivity;
+import in.rrapps.mvpdaggertesting.movie.detail.MovieDetailActivity;
 import in.rrapps.mvpdaggertesting.models.response.Result;
 
 /**
@@ -86,10 +86,8 @@ public class MovieListFragment extends BaseFragment implements Contracts.View {
                 .filter(event -> presenter.shouldUpdate())
                 .filter(event1 -> hasScrolledToLast())
                 .map(event -> pageIndex = pageIndex + 1)
-                .subscribe(recyclerViewScrollEvent -> {
-                    presenter.fetchMovies(pageIndex);
-                }, this::onError);
-
+                .subscribe(recyclerViewScrollEvent -> presenter.fetchMovies(pageIndex),
+                        this::onError);
     }
 
     @Override

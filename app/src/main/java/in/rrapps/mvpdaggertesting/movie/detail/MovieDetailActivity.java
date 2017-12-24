@@ -1,4 +1,4 @@
-package in.rrapps.mvpdaggertesting.detail;
+package in.rrapps.mvpdaggertesting.movie.detail;
 
 import android.os.Bundle;
 
