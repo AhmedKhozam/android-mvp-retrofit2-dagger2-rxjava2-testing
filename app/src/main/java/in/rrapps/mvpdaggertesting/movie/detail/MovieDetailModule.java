@@ -4,6 +4,7 @@ import dagger.Module;
 import dagger.Provides;
 import in.rrapps.mvpdaggertesting.dao.DatabaseInteractor;
 import in.rrapps.mvpdaggertesting.movie.MovieScope;
+import timber.log.Timber;
 
 /**
  * Created by abhishek
@@ -22,6 +23,7 @@ public class MovieDetailModule {
     @Provides
     @MovieScope
     MovieDetailPresenter provideMovieDetailPresenter(DatabaseInteractor databaseInteractor) {
+        Timber.d("Creating new presenter for movie detail");
         return new MovieDetailPresenter(movieDetailView, databaseInteractor);
     }
 }

@@ -25,9 +25,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 @Module
 public class ApiModule {
 
-    @Getter
-    private static ApiService apiService;
-
     @Provides
     @Singleton
     ApiService providesApiService() {
@@ -67,7 +64,6 @@ public class ApiModule {
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .addCallAdapterFactory(rxAdapter)
                 .build();
-        apiService = retrofit.create(ApiService.class);
-        return new ApiServiceModule();
+        return retrofit.create(ApiService.class);
     }
 }

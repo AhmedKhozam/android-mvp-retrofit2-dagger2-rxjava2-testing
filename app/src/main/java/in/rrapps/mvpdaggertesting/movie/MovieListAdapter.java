@@ -28,6 +28,7 @@ import lombok.Getter;
 public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.MovieViewHolder> {
 
     private Context context;
+
     @Getter
     private List<Result> movieList;
     private LayoutInflater layoutInflater;

@@ -2,6 +2,7 @@ package in.rrapps.mvpdaggertesting.dao;
 
 import android.os.AsyncTask;
 
+import dagger.Provides;
 import in.rrapps.mvpdaggertesting.BaseApplication;
 import in.rrapps.mvpdaggertesting.database.AppDatabase;
 import in.rrapps.mvpdaggertesting.models.MovieData;
