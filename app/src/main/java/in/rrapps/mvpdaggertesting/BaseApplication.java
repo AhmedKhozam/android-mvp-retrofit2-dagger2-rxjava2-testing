@@ -2,21 +2,10 @@ package in.rrapps.mvpdaggertesting;
 
 import android.app.Application;
 
-import javax.inject.Inject;
-
-import in.rrapps.mvpdaggertesting.dao.DatabaseInteractor;
-import in.rrapps.mvpdaggertesting.database.AppDatabase;
 import lombok.Getter;
 import timber.log.Timber;
 
 public class BaseApplication extends Application {
-
-    @Inject @Getter
-    DatabaseInteractor databaseInteractor;
-
-    @Inject @Getter
-    AppDatabase appDatabase;
-
     @Getter
     private AppComponent appComponent;
 
