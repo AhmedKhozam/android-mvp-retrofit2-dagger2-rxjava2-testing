@@ -1,8 +1,6 @@
 package in.rrapps.mvpdaggertesting.movie;
 
-import dagger.Component;
 import dagger.Subcomponent;
-import in.rrapps.mvpdaggertesting.AppComponent;
 
 /**
  * Created by abhishek
